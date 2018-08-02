@@ -1,0 +1,15 @@
+﻿@model Penumbra.Models.BlockRequestModel
+@using Penumbra.Models;
+@{
+    ViewBag.Title = "Website blocked by Web filter.";
+}
+@section Styles {
+}
+<div id="pageContent" class="row">
+    <div class="col-xs-12">
+        <h1>Website Blocked</h1>
+        <strong>@Model.Url</strong> is currently blocked by the web filter because it is categorized as <strong>@Model.CategoryTitle</strong>.<br />
+        <br />
+        <strong><a href="@Url.Action("Index", "Override")">Sign in</a></strong> to override this block.
+    </div>
+</div>

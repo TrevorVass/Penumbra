@@ -1,0 +1,59 @@
+﻿h1
+{
+	text-align: center;
+	font-weight: normal;
+    margin-top: 50px;
+}
+h2
+{
+	text-align: center;
+	font-weight: normal;
+	font-size: 12pt;
+}
+#signInForm
+{
+	max-width: 350px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 10pt;
+}
+.signInField
+{
+	width: 100%;
+	margin-bottom: 10px;
+}
+#signInButton
+{
+	font-family: verdana, arial, sans-serif;
+	font-size: 12pt;
+	clear: both;
+	float: right;
+	margin-bottom: 10px;
+}
+#recoveryArea
+{
+	clear: both;
+	text-align: center;
+	width: 100%;
+	line-height: 150%;
+}
+.errorText
+{
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+@media (max-width: 380px)
+{
+    #logo {
+        width: 108px;
+        height: 30px;
+    }
+
+    #signInForm
+    {
+	    width: 90%;
+        min-width: 220px;
+    }
+}

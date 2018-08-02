@@ -1,0 +1,8 @@
+﻿@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("SignOut", "Account", FormMethod.Post, new { Class = "white" }))
+    {
+        <span id="signOutUserName">@Membership.GetUser().UserName</span>
+        <button id="signOutButton" class="btn btn-default navbar-btn btn-sm" type="submit">Sign Out</button>
+    }
+}

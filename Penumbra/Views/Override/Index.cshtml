@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Website blocked by Web filter.";
+}
+@section styles {
+}
+@{
+    // The user that is logged into the control panel.
+    string loggedInUsername = Membership.GetUser().UserName;
+}
+@{
+    // Get the roles associated with the logged in user.
+    string[] roles = { };
+    try
+    {
+        roles = Roles.GetRolesForUser();
+    }
+    catch
+    {
+    }
+}
+<div id="pageContent" class="row">
+    @if (!string.IsNullOrWhiteSpace(loggedInUsername))
+    {
+    <div class="col-xs-12">
+        <h1>Override Website Blocks</h1>
+        @if (roles.Contains(MvcApplication.OVERRIDER_GROUP_NAME))
+        {
+            <text>
+                Would you like to override the web filter on this computer for the next <!-- Update the text for how long you'd like to override here -->two hours?<br />
+                <br />
+                <ul style="list-style-type: none;">
+                    <li style="margin-bottom: 20px;"><a href="@Url.Action("Do")" class="btn btn-success btn-lg override">Yes!</a><br />
+                        <small>(All websites that can be overriden will be for the next <!-- Update the text for how long you'd like to override here -->two hours.)</small></li>
+                    <li><a href="@Url.Action("SignOut", "Account")" class="btn btn-danger btn-lg override">No</a><br />
+                        <small>(I want to keep the web filter in place and sign out of this page.)</small></li>
+                </ul>
+            </text>
+        }
+        else
+        {
+            <text>
+                You are not authorized to override the web filter.
+            </text>
+        }
+    </div>
+    }
+    else
+    {
+        <div class="col-xs-12">
+            <div class="alert alert-danger" role="alert">User doesn't exist.</div>
+        </div>
+    }
+</div>

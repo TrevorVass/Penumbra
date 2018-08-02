@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Force newest rendering engine available in IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Web Filter - @ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="~/Content/Application.css" rel="stylesheet" type="text/css" />
+    @RenderSection("styles", false)
+    @RenderSection("head", false)
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <div id="navBarTitle">Web Filter</div>
+                <a href="https://www.domain.com" class="pull-right"><img id="siteLogo" src="~/Content/logo.png" alt="Your Organization"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year Your Organization | <a href="mailto:support@domain.com">Contact Us</a></p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

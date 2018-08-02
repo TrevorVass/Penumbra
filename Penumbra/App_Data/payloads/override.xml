@@ -1,0 +1,13 @@
+<uid-message>
+	<version>1.0</version>
+	<type>update</type>
+	<payload>
+		<register>
+			<entry ip="%IP%">
+				<tag>
+					<member>url-filter-override</member>
+				</tag>
+			</entry>
+		</register>
+	</payload>
+</uid-message>

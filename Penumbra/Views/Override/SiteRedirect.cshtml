@@ -1,0 +1,39 @@
+﻿@model Penumbra.Models.BlockRequestModel
+@{
+    ViewBag.Title = "Initiating Override";
+}
+@section head {
+<meta http-equiv="refresh" content="62;URL='@Model.Url'" />
+}
+@section scripts {
+<script type="text/javascript">
+    // Hide elements that are only needed if javascript is not enabled.
+    $(document).ready(function () {
+        $("#js-hide").hide();
+    });
+
+    // Wait until the start of the next minute. Then redirect.
+    document.getElementById("js-hide").hidden = true;
+    var dt = new Date();
+    var seconds = 60 - dt.getSeconds() + 2; // Wait the extra 2 seconds in case the clocks are off slightly.
+    console.log("Seconds till redirect: " + seconds);
+    var countDownSeconds = seconds;
+    setInterval(function () {
+        var elem = document.getElementById("seconds");
+        elem.innerText = countDownSeconds--;
+    }, 1000);
+    setTimeout(function () {
+        window.location = '@Model.Url';
+    }, seconds * 1000)
+</script>
+}
+<div id="pageContent" class="row">
+    <div class="col-xs-12">
+        <h1>Initiating Override...</h1>
+        Please wait while we override the web filter.<br />
+        <br />
+        Redirecting to <strong>@Model.Url</strong>...<span id="js-hide">in approximately one minute.</span><br />
+        <img src="~/Content/earth-gif-preloader.gif" class="preloader"/><span id="seconds" class="countdownTimer"></span>
+    </div>
+</div>
+
